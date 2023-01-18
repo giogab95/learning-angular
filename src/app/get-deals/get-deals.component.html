@@ -1,5 +1,5 @@
 <div *ngIf="loading">Caricamento in corso...</div>
-<div>
+<div *ngIf="!loading">
   <label for="price-slider">Filtra prezzo massimo:</label>
   <input
     type="range"
@@ -11,8 +11,40 @@
   />
   <span>{{ upperPrice }}$</span>
 </div>
-<div *ngIf="deals?.length && !loading">
-  <div *ngFor="let deal of deals">{{ deal.title }} - {{ deal.salePrice }}</div>
+<div
+  *ngIf="deals?.length && !loading"
+  style="width: 100%; display: flex; gap: 10px; flex-wrap: wrap"
+>
+  <div
+    *ngFor="let deal of deals"
+    style="
+      width: 150px;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+      border: 0.5px solid #0000006e;
+      border-radius: 20px;
+      text-align: center;
+    "
+  >
+    <img
+      ngSrc="{{ deal.thumb }}"
+      height="80"
+      width="150"
+      priority
+      style="
+        object-fit: cover;
+        object-position: center;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      "
+    />
+    <div style="padding: 5px">
+      <h4>{{ deal.title }}</h4>
+      <p>{{ deal.salePrice }}$</p>
+    </div>
+  </div>
 </div>
 <div *ngIf="!loading && (!deals || deals.length === 0)">
   Nessun prodotto trovato

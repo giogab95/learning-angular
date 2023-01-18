@@ -13,12 +13,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetDealsComponent } from './get-deals/get-deals.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FormsModule } from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgOptimizedImage,
     FormsModule,
     RouterModule.forRoot([
       { path: 'products', component: ProductListComponent },

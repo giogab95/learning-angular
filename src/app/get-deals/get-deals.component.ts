@@ -22,7 +22,7 @@ export class GetDealsComponent implements OnInit {
     const url = `https://www.cheapshark.com/api/1.0/deals?upperPrice=${this.upperPrice}`;
     return this.http.get(url).subscribe((data) => {
       let items = Object.values(data);
-      this.deals = items.sort((a, b) => a.salePrice - b.salePrice);
+      this.deals = items.sort((a, b) => b.salePrice - a.salePrice);
       this.loading = false;
     });
   }
