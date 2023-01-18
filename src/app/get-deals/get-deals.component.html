@@ -1,0 +1,19 @@
+<div *ngIf="loading">Caricamento in corso...</div>
+<div>
+  <label for="price-slider">Filtra prezzo massimo:</label>
+  <input
+    type="range"
+    min="0"
+    max="100"
+    [(ngModel)]="upperPrice"
+    (change)="getDeals()"
+    id="price-slider"
+  />
+  <span>{{ upperPrice }}$</span>
+</div>
+<div *ngIf="deals?.length && !loading">
+  <div *ngFor="let deal of deals">{{ deal.title }} - {{ deal.salePrice }}</div>
+</div>
+<div *ngIf="!loading && (!deals || deals.length === 0)">
+  Nessun prodotto trovato
+</div>

@@ -1,0 +1,8 @@
+<h2>Prodotti</h2>
+<div *ngFor="let product of products">
+  <h3>
+    <button (click)="gotoItems(product.id)">
+      {{ product.name }}
+    </button>
+  </h3>
+</div>
