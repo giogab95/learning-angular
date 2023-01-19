@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'test';
-  description = 'test description';
-  empyString: string = '';
+  constructor(private cookieService: CookieService, private router: Router) {
+    let jwt: string = this.cookieService.get('token');
 
-  editMe(string: string) {
-    this.empyString = string;
+    if (!jwt) {
+      this.router.navigate(['']);
+    }
   }
 }

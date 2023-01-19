@@ -27,6 +27,7 @@ import { JwtInterceptor } from './interceptor.interceptor';
       { path: 'products', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailComponent },
       { path: 'deals', component: GetDealsComponent },
+      { path: 'homepage', component: HomepageComponent },
       { path: '', component: LoginComponent },
       { path: '**', component: PageNotFoundComponent },
     ]),
