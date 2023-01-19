@@ -1,0 +1,193 @@
+html {
+  font-size: $defaultFontSize;
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+  width: 100%;
+}
+
+.app,
+#__next {
+  width: 100%;
+  position: relative;
+}
+
+*,
+*:before,
+*:after {
+  font-family: $fontPrimary !important;
+  line-height: normal !important;
+  box-sizing: inherit !important;
+}
+
+body {
+  @include media-breakpoints-up(lg) {
+    background: #f0f2f5;
+  }
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  padding: 0;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontPrimary !important;
+}
+
+h1 {
+  color: map-get($colors, primary);
+  font-size: get-rem-from-px(19px) !important;
+  @include media-breakpoints-up(lg) {
+    font-size: get-rem-from-px(24px) !important;
+  }
+}
+
+h2 {
+  font-size: get-rem-from-px(18px) !important;
+  @include media-breakpoints-up(lg) {
+    font-size: get-rem-from-px(22px) !important;
+  }
+}
+
+h3 {
+  color: map_get($colors, primary);
+  font-size: get-rem-from-px(15px) !important;
+  font-weight: bold;
+  margin-bottom: 2px;
+  @include media-breakpoints-up(lg) {
+    font-size: get-rem-from-px(18px) !important;
+  }
+}
+
+h4 {
+  color: map-get($colors, button);
+  font-size: get-rem-from-px(13px);
+  font-weight: bold;
+  @include media-breakpoints-up(lg) {
+    font-size: get-rem-from-px(16px) !important;
+  }
+  font-weight: 300;
+}
+
+p {
+  color: map_get($colors, black);
+  font-size: get-rem-from-px(16px);
+  line-height: get-rem-from-px(21px);
+  margin: 0 !important;
+}
+
+small {
+  letter-spacing: 1pt;
+  font-size: get-rem-from-px(12px);
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a,
+i {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: get-rem-from-px(14px);
+}
+
+img {
+  display: block;
+}
+
+a:hover,
+a:active {
+  color: map-get($colors, button);
+  filter: brightness(80%);
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.button-primary {
+  border-radius: 8px;
+  background: map-get($colors, secondary) !important;
+  box-sizing: border-box;
+  text-align: center;
+  color: #ffffff !important;
+  padding: get-rem-from-px(8px) get-rem-from-px(30px) !important;
+  transition: all 0.1s linear;
+  font-family: $fontPrimary;
+  font-weight: 600;
+  border-right: none !important;
+
+  &:hover,
+  &:active,
+  &:focus {
+    filter: brightness(80%);
+  }
+}
+
+.button-talk {
+  padding: get-rem-from-px(10px) get-rem-from-px(32px) !important;
+}
+
+.button-primary-menu {
+  border-radius: 6px;
+  background: map-get($colors, primary);
+  color: #ffffff !important;
+  transition: all 0.1s linear;
+  border-right: none !important;
+  font-size: 14px !important;
+  font-weight: 700;
+  justify-self: flex-start;
+  padding: 11px 0;
+  text-align: center;
+  width: get-rem-from-px(160px);
+  margin-left: 1rem;
+
+  &:hover,
+  &:active,
+  &:focus {
+    filter: brightness(80%);
+    background: map-get($colors, primary);
+  }
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -7.375rem;
+  visibility: hidden;
+}
+
+.bg-image-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #43352100;
+  height: 100%;
+}
+
+.reverse-flex {
+  flex-direction: row-reverse;
+}

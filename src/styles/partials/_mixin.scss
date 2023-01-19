@@ -1,0 +1,85 @@
+/* media breakpoint*/
+@mixin media-breakpoints-up($bk) {
+  @if ($bk) {
+    @media only screen and (min-width: map_get($breakpoints, $bk)) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+/* viewport */
+@mixin viewport-width-height($width, $height, $breakpoint: null) {
+  @include media-breakpoints-up($breakpoint) {
+    @if ($height) {
+      height: get-vh($height);
+    }
+    @if ($width) {
+      @if ($breakpoint) {
+        width: get-vw($width, map-get($breakpoints, $breakpoint));
+      } @else {
+        width: get-vw($width, 320px);
+      }
+    }
+  }
+}
+
+/* font */
+@mixin font-size-line-weight( $font, $line, $weight: null, $breakpoints: null ) {
+  @include media-breakpoints-up($breakpoints) {
+    //margin: 0!important;
+    font-size: $font;
+    line-height: $line;
+    @if ($weight) {
+      font-weight: $weight;
+    }
+  }
+}
+
+/* padding and margin responsive mixin */
+@mixin padding-top-bottom( $top, $bottom, $breakpoint:null) {
+  @include media-breakpoints-up($breakpoint) {
+    padding-top: get-rem-from-px($top);
+    padding-bottom: get-rem-from-px($bottom);
+  }
+}
+
+@mixin padding-left-right($left, $right, $breakpoint:null) {
+  @include media-breakpoints-up($breakpoint) {
+    padding-left: get-rem-from-px($left) ;
+    padding-right: get-rem-from-px($right);
+  }
+}
+
+@mixin margin-top-bottom($top, $bottom, $breakpoint:null) {
+  @include media-breakpoints-up($breakpoint) {
+    margin-top: get-rem-from-px($top);
+    margin-bottom: get-rem-from-px($bottom);
+  }
+}
+
+@mixin margin-left-right($left, $right, $breakpoint:null) {
+  @include media-breakpoints-up($breakpoint) {
+    margin-left: get-rem-from-px($left);
+    margin-right: get-rem-from-px($right);
+  }
+}
+
+@mixin col-number-dim-auto($num, $breakpoint:null) {
+
+  @include media-breakpoints-up($breakpoint) {
+    grid-template-columns: repeat($num, auto);
+  }
+}
+@mixin gap-flex($gap, $breakpoint:null) {
+  @include media-breakpoints-up($breakpoint) {
+    & > * {
+      margin: get-rem-from-px($gap) get-rem-from-px($gap) 0 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

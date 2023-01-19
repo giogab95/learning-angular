@@ -1,0 +1,19 @@
+/*icon size*/
+.icon-xs {
+  font-size: get-rem-from-px(18px);
+}
+
+.icon-sm {
+  font-size: get-rem-from-px(30px);
+  line-height: get-rem-from-px(30px);
+}
+
+.icon-md {
+  font-size: get-rem-from-px(40px);
+  line-height: get-rem-from-px(40px);
+}
+
+.icon-lg {
+  font-size: get-rem-from-px(50px);
+  line-height: get-rem-from-px(50px);
+}

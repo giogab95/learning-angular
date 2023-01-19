@@ -1,0 +1,18 @@
+@use "sass:math";
+
+@function get-rem-from-px($size) {
+  $rem: math.div($size, $defaultFontSize);
+  @return #{$rem}rem;
+}
+
+@function get-vw($target, $breakpoint) {
+
+  $vw-context: math.div($target, $breakpoint)*100;
+  @return $vw-context * 1vw;
+}
+
+@function get-vh($target) {
+  $vw-context: (1000*.01) * 1px;
+  @return math.div($target, $vw-context) * 1vh;
+}
+

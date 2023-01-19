@@ -1,0 +1,63 @@
+@mixin col-number-dim($num, $dim, $breakpoint:null) {
+
+  @include media-breakpoints-up($breakpoint) {
+    grid-template-columns: repeat($num, minmax(get-rem-from-px($dim), auto));
+  }
+}
+
+@mixin col-number-dim-fr($num, $dim, $breakpoint:null) {
+
+  @include media-breakpoints-up($breakpoint) {
+    grid-template-columns: repeat($num, minmax(get-rem-from-px($dim), 1fr));
+  }
+}
+
+@mixin col-number-dim-px($num, $dim,$px, $breakpoint:null) {
+
+  @include media-breakpoints-up($breakpoint) {
+    grid-template-columns: repeat($num, minmax(get-rem-from-px($dim), get-rem-from-px($px)));
+  }
+}
+
+@mixin col-number-dim($num, $dim, $breakpoint:null) {
+
+  @include media-breakpoints-up($breakpoint) {
+    grid-template-columns: repeat($num, minmax(get-rem-from-px($dim), auto));
+  }
+}
+
+@mixin col-start-end($start, $end, $breakpoint:null) {
+
+  @include media-breakpoints-up($breakpoint) {
+    @if ($start) {
+      grid-column-start: $start;
+    }
+    @if ($end) {
+      grid-column-end: $end;
+    }
+  }
+}
+
+@mixin row-start-end($start, $end, $breakpoint:null) {
+
+  @include media-breakpoints-up($breakpoint) {
+    @if ($start) {
+      grid-row-start: $start;
+    }
+    @if ($end) {
+      grid-row-end: $end;
+    }
+  }
+}
+
+@mixin gap-col-row($col, $row, $breakpoint:null) {
+  @include media-breakpoints-up($breakpoint) {
+    @if ($col) {
+      column-gap: get-rem-from-px($col);
+    }
+    @if ($row) {
+      row-gap: get-rem-from-px($row);
+    }
+  }
+}
+

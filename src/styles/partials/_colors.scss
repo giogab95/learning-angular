@@ -1,0 +1,77 @@
+//@use "sass:color";
+
+$colors: (
+        grey: grey,
+        variant-grey:#707070,
+        light-grey: rgb(206, 206, 206),
+        header-grey: rgba(38, 50, 56, 0.1),
+        white: rgb(255, 255, 255),
+        black: rgb(33, 33, 33),
+        red:red,
+        primary: #263238,
+        primary-transparent: #2632387a,
+        light-primary:#3D515A,
+        secondary: #FF3366,
+        secondary-button:#FF678D,
+        accent: #ff2c60,
+        secondary-transpartent: rgba(255, 51, 102, 0.25),
+        success: rgb(49, 155, 30),
+        danger: rgb(180, 26, 0),
+        shadow: rgba(0, 0, 0, 0.17),
+        none: none,
+);
+
+@mixin color-modifiers($attribute: 'color', $prefix: '-') {
+  @each $name, $hex in $colors {
+    &#{$prefix}#{"" + $name} {
+      #{$attribute}: $hex !important;
+    }
+  }
+}
+
+.text {
+  @include color-modifiers;
+  &-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+}
+
+.bg {
+  @include color-modifiers($attribute: 'background-color');
+}
+
+.border {
+  border: get-rem-from-px(1px) solid;
+  @include color-modifiers($attribute: 'border-color');
+}
+
+.link-white {
+  cursor: pointer !important;
+  color: #FFFFFF !important;
+  font-weight: 400;
+
+  &:hover, &:active {
+    filter: brightness(80%) !important;
+  }
+}
+
+@mixin link-modifiers( $name, $hex, $prefix: '-') {
+
+  &#{$prefix}#{$name} {
+    cursor: pointer;
+    color: $hex;
+    //@debug $hex;
+    &:hover, &:active {
+      filter: brightness(80%);
+    }
+
+  }
+}
+
+.link {
+  @each $name, $hex in $colors {
+    @include link-modifiers(#{$name}, $hex);
+  }
+}

@@ -1,23 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
-:host {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
-  color: #333;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1,
-h2,
-h3,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
-p,
-h4 {
-  margin: 0;
-}
+@import "./styles/partials/fonts";
+@import "./styles/partials/variables";
+@import "./styles/partials/functions";
+@import "./styles/partials/mixin";
+@import "./styles/partials/colors";
+@import "./styles/partials/reset";
+@import "./styles/partials/utils";
+@import "./styles/partials/grid";
+@import "./styles/partials/layout";
+@import "./styles/partials/animations";
+@import "./styles/partials/carousel";
+@import "./styles/partials/icons";

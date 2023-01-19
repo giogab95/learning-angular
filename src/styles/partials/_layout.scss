@@ -1,0 +1,83 @@
+/*fixed grid md*/
+.layout {
+  padding-bottom: get-rem-from-px(20px) !important;
+}
+
+.wrapper {
+  &-grid {
+    @include col-number-dim-auto(9);
+    @include col-number-dim(9, 27px, sm);
+    @include col-number-dim(10, 54px, md);
+    @include col-number-dim(14, 55px, lg);
+    @include col-number-dim(14, 70px, fhd);
+
+    @include gap-col-row(8px, 12px);
+    @include gap-col-row(0px, 12px, sm);
+    @include gap-col-row(18px, 18px, md);
+    @include gap-col-row(16px, 16px, lg);
+    //@include gap-col-row(10px,1px, fhd);
+  }
+
+  /*end fix*/
+  &-margin {
+
+    @include margin-left-right(23px, 23px, lg); //3
+    @include margin-left-right(96px, 96px, xl);
+    @include margin-left-right(330px, 330px, fhd); // 4
+    @include margin-left-right(600px, 600px, twoKey); // 4
+
+    @include media-breakpoints-up(lg) {
+      width: calc(100% - 46px);
+    }
+    @include media-breakpoints-up(xl) {
+      width: calc(100% - 192px);
+    }
+    @include media-breakpoints-up(fhd) {
+      width: calc(100% - 660px);
+    }
+    @include media-breakpoints-up(twoKey) {
+      width: calc(100% - 1200px);
+    }
+  }
+  &-padding-landing {
+    @include padding-left-right(10px, 10px); // 1
+    @include padding-left-right(33px, 33px, md); //2
+    @include media-breakpoints-up(lg){
+      max-width: get-rem-from-px(1300px);
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  &-padding {
+    @include padding-left-right(10px, 10px); // 1
+    @include padding-left-right(33px, 33px, md); //2
+    @include padding-left-right(23px, 23px, lg); //3
+    @include padding-left-right(96px, 96px, xl);
+    @include padding-left-right(350px, 350px, fhd); // 4
+    @include padding-left-right(600px, 600px, twoKey) ; // 4
+
+    &-exception {
+      padding-right: 0;
+
+      & .swiper-container .swiper-wrapper {
+        .swiper-slide:last-child {
+          margin-right: get-rem-from-px(22px) !important;
+          @include media-breakpoints-up(md) {
+            margin-right: get-rem-from-px(42px) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.default-col-layout {
+  @include col-start-end(2, 14)
+}
+
+.default-col-start {
+  @include col-start-end(2, 15)
+}

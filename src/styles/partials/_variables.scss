@@ -1,0 +1,14 @@
+$fontPrimary: "Roboto", sans-serif;
+$defaultFontSize: 16px;
+$breakpoints: (
+  xs: 320px,
+  // 1
+  sm: 411px,
+  md: 768px,
+  // 2
+  lg: 1024px,
+  // 3
+  xl: 1366px,
+  fhd: 1920px,
+  // 4
+);
