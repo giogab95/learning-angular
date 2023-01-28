@@ -27,7 +27,7 @@ export class LoginComponent {
   password: string = '';
 
   login(email: string, password: string) {
-    const body = { email: email, password: password };
+    const body = { email, password };
     return this.http
       .post('http://localhost:5001/users/login', body, {
         headers: new HttpHeaders({
